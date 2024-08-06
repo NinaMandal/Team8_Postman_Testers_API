@@ -1,0 +1,1144 @@
+{
+	"info": {
+		"_postman_id": "1e72c0e3-6e29-49ec-af23-f1172889a3bf",
+		"name": "Team08_API_Testers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34647863",
+		"_collection_link": "https://interstellar-space-75333.postman.co/workspace/Team8_Postman_Hackathon~72442ad8-b6bd-47d3-8d9b-4c96981108fa/collection/34647863-1e72c0e3-6e29-49ec-af23-f1172889a3bf?action=share&source=collection_link&creator=34647863"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "GenerateAdminTokenn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseData = pm.response.json();\r",
+									"pm.environment.set(\"Admintoken_env\", responseData.token);\r",
+									"pm.environment.set(\"User_ID\", responseData.userId);\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"password\": \"test\",\r\n  \"userLoginEmail\": \"Team8@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateDieticianEndFlow",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (typeof pm.variables.get('requestdata') !== 'object') \r",
+									"{\r",
+									"    pm.variables.set('requestdata', pm.iterationData.toObject());\r",
+									"}\r",
+									"const requestdata = pm.variables.get('requestdata');\r",
+									"\r",
+									"if(typeof requestdata !== 'object' || Object.keys(requestdata).length ===0) \r",
+									"{\r",
+									"    console.log(\"No external file found\")\r",
+									"    return;\r",
+									"}\r",
+									"\r",
+									"const currentrequest = requestdata.requests.filter(({name}) => name === pm.info.requestName) [0];\r",
+									"if(!currentrequest){\r",
+									"    console.log(`Request ${pm.info.requestName} has no data defined.`);\r",
+									"}\r",
+									"\r",
+									"if(currentrequest){\r",
+									"    const variables = currentrequest.data.shift();\r",
+									"\r",
+									"Object.entries(variables).forEach(([key, value]) => {\r",
+									"        pm.variables.set(key, value);\r",
+									"    });\r",
+									"\r",
+									"pm.variables.set('requestdata',requestdata);\r",
+									"if(currentrequest.data.length > 0){\r",
+									"    pm.execution.setNextRequest(pm.info.requestName)\r",
+									"}\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response JSON\r",
+									"try {\r",
+									"    var jsonData = JSON.parse(pm.response.text());\r",
+									"\r",
+									"    // Ensure the JSON data has an 'id' field\r",
+									"    if (jsonData.id) {\r",
+									"        pm.environment.set(\"DietID\", jsonData.id);\r",
+									"        pm.environment.set(\"DietPWD\", jsonData.loginPassword);\r",
+									"        pm.environment.set(\"DietEmail\", jsonData.Email);\r",
+									"        console.log(\"Environment variables set successfully.\");\r",
+									"    } else {\r",
+									"        console.error(\"Response JSON does not contain 'id' field:\", jsonData);\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    console.error(\"Failed to parse response JSON:\", e);\r",
+									"}\r",
+									"\r",
+									"// Validate if the id is correctly set in the environment\r",
+									"pm.test(\"Check dieticianId present in the response body\", function () {\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"/*pm.test(\"Check if Dietician FirstName is present\", function () {\r",
+									"    pm.expect(dieticianResponse.Firstname).to.eql(pm.iterationData.get(\"post_dietician\").first_name);\r",
+									"});*/\r",
+									"\r",
+									"// Validate Header\r",
+									"pm.test(\"Test Header\", function(){\r",
+									"    pm.response.to.be.header(\"Content-Type\",\"application/json\");  \r",
+									"})\r",
+									"\r",
+									"// Validate status code\r",
+									"if (pm.response.code == 201)\r",
+									"{ \r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"      pm.response.to.have.status(201);\r",
+									"    });\r",
+									"}\r",
+									"else if(pm.response.code == 400){\r",
+									"    pm.test(\"Status code is 400\", function () {\r",
+									"      pm.response.to.have.status(400);\r",
+									"    });\r",
+									"} \r",
+									"\r",
+									"else if(pm.response.code == 401){\r",
+									"    pm.test(\"Status code is 401\", function () {\r",
+									"      pm.response.to.have.status(401);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"else if(pm.response.code == 404){\r",
+									"    pm.test(\"Status code is 404\", function () {\r",
+									"      pm.response.to.have.status(404);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"else if(pm.response.code == 200){\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"      pm.response.to.have.status(200);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"// Validate String of status code\r",
+									"if (pm.response.code == 201)\r",
+									"{\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"    });\r",
+									"}\r",
+									"else if(pm.response.code == 400){\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Bad Request\");\r",
+									"    });\r",
+									"}\r",
+									"else if(pm.response.code == 401){\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Unauthorized\");\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"else if(pm.response.code == 404){\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"else if(pm.response.code == 200){\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Ok\");\r",
+									"    });\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContactNumber\": \"{{contact_Number}}\",\r\n  \"DateOfBirth\": \"{{date_Of_Birth}}\",\r\n  \"Education\": \"{{education}}\",\r\n  \"Email\": \"{{email}}\",\r\n  \"Firstname\": \"{{first_name}}\",\r\n  \"HospitalCity\": \"{{hospital_City}}\",\r\n  \"HospitalName\": \"{{hospital_Name}}\",\r\n  \"HospitalPincode\": \"{{hospital_Pincode}}\",\r\n  \"HospitalStreet\": \"{{hospital_Street}}\",\r\n  \"Lastname\": \"{{last_name}}\"\r\n \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateDieticianForPatient",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response JSON\r",
+									"try {\r",
+									"    var jsonData = JSON.parse(pm.response.text());\r",
+									"\r",
+									"    // Ensure the JSON data has an 'id' field\r",
+									"    if (jsonData.id) {\r",
+									"        pm.environment.set(\"DietIDForPatient\", jsonData.id);\r",
+									"        pm.environment.set(\"DietPWDForPatient\", jsonData.loginPassword);\r",
+									"        pm.environment.set(\"DietEmailForPatient\", jsonData.Email);\r",
+									"        console.log(\"Environment variables set successfully.\");\r",
+									"    } else {\r",
+									"        console.error(\"Response JSON does not contain 'id' field:\", jsonData);\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    console.error(\"Failed to parse response JSON:\", e);\r",
+									"}\r",
+									"\r",
+									"// Validate if the id is correctly set in the environment\r",
+									"pm.test(\"Check dieticianId present in the response body\", function () {\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"/*pm.test(\"Check if Dietician FirstName is present\", function () {\r",
+									"    pm.expect(dieticianResponse.Firstname).to.eql(pm.iterationData.get(\"post_dietician\").first_name);\r",
+									"});*/\r",
+									"\r",
+									"// Validate Header\r",
+									"pm.test(\"Test Header\", function(){\r",
+									"    pm.response.to.be.header(\"Content-Type\",\"application/json\");  \r",
+									"})\r",
+									"\r",
+									"// Validate status code\r",
+									"if (pm.response.code == 201)\r",
+									"{ \r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"      pm.response.to.have.status(201);\r",
+									"    });\r",
+									"}\r",
+									"else if(pm.response.code == 400){\r",
+									"    pm.test(\"Status code is 400\", function () {\r",
+									"      pm.response.to.have.status(400);\r",
+									"    });\r",
+									"} \r",
+									"\r",
+									"else if(pm.response.code == 401){\r",
+									"    pm.test(\"Status code is 401\", function () {\r",
+									"      pm.response.to.have.status(401);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"else if(pm.response.code == 404){\r",
+									"    pm.test(\"Status code is 404\", function () {\r",
+									"      pm.response.to.have.status(404);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"else if(pm.response.code == 200){\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"      pm.response.to.have.status(200);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"// Validate String of status code\r",
+									"if (pm.response.code == 201)\r",
+									"{\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"    });\r",
+									"}\r",
+									"else if(pm.response.code == 400){\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Bad Request\");\r",
+									"    });\r",
+									"}\r",
+									"else if(pm.response.code == 401){\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Unauthorized\");\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"else if(pm.response.code == 404){\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"else if(pm.response.code == 200){\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Ok\");\r",
+									"    });\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"ContactNumber\":\"9992427966\",\r\n\"DateOfBirth\":\"2022-03-10T18:14:08.570Z\",\r\n\"Education\":\"Bachelors\",\r\n\"Email\":\"Patientdietician@gmail.com\",\r\n\"Firstname\":\"TestdieticianPatient\",\r\n\"HospitalCity\":\"mumbai\",\r\n\"HospitalName\":\"mumbai\",\r\n\"HospitalPincode\":\"119911\",\r\n\"HospitalStreet\":\"mumbai\",\r\n\"Lastname\":\"TestPatient\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/dietician",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dietician"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{Admintoken_env}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Dietician",
+			"item": [
+				{
+					"name": "GenerateDieticianBearerTokenPatient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(pm.response.text());\r",
+									"pm.environment.set(\"DieticianTokenForPatient\" ,jsonData.token);\r",
+									"\r",
+									"// Log the response\r",
+									"console.log(\"Response:\", pm.response.text());\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admintoken_env}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"password\":\"{{DietPWDForPatient}}\",\r\n\"userLoginEmail\":\"{{DietEmailForPatient}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login",
+							"protocol": "https",
+							"host": [
+								"dietician-july-api-hackathon-80f2590665cc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"dietician",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{Admintoken_env}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "CreatePatientMobidity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 201\",() =>\r",
+									"{\r",
+									"    pm.response.to.have.status(201);\r",
+									"}\r",
+									");\r",
+									"\r",
+									"\r",
+									"try {\r",
+									"    var jsonData = JSON.parse(pm.response.text());\r",
+									"\r",
+									"    // Ensure the JSON data has an 'id' field\r",
+									"    if (jsonData.patientId) {\r",
+									"        pm.environment.set(\"PatientIDMorbidity_env\", jsonData.patientId);\r",
+									"    }\r",
+									"    }catch (e) {\r",
+									"    console.error(\"Failed to parse response JSON:\", e);\r",
+									"}\r",
+									"\r",
+									"\r",
+									"var fileid = Object.keys(jsonData.FileMorbidity)[0];\r",
+									"\r",
+									"\r",
+									"pm.environment.set(\"FileidMorbidity_env\", fileid);\r",
+									"\r",
+									"//console.log(pm.response.text());\r",
+									"\r",
+									"\r",
+									"//console.log(\"Extracted morbidity key:\", fileid);\r",
+									"//console.log(\"JSONDATA:\", jsonData.text());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patientInfo",
+									"value": "{\"FirstName\": \"Morbidity\",\n\"LastName\": \"Patient\",\n\"ContactNumber\": \"8808721298\",\n\"Email\": \"Morbiditypatient@gmail.com\",\n\"Allergy\": \"NONE\",\n\"FoodPreference\": \"Vegan\",\n\"CuisineCategory\": \"Indian\",\n\"DateOfBirth\": \"1987-11-23\"\n}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ef4fc66-e346-40a0-a5c1-311bfa7b0cc0"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/patient",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"patient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreatePatientValid/Invalid",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Check if request data is already set\r",
+									"if (!pm.variables.get('requestData')) {\r",
+									"    pm.variables.set('requestData', pm.iterationData.toObject());\r",
+									"}\r",
+									"\r",
+									"const requestData = pm.variables.get('requestData');\r",
+									"\r",
+									"if (!requestData || typeof requestData !== 'object' || !requestData.requests) {\r",
+									"    console.log(\"No external file found or invalid data\");\r",
+									"    return;\r",
+									"}\r",
+									"\r",
+									"let currentRequestData = requestData.requests.find(r => r.name === pm.info.requestName);\r",
+									"\r",
+									"if (!currentRequestData) {\r",
+									"    console.log(`Request ${pm.info.requestName} has no data defined.`);\r",
+									"    return;\r",
+									"}\r",
+									"\r",
+									"// Initialize index if not set\r",
+									"if (!pm.variables.get('currentIndex')) {\r",
+									"    pm.variables.set('currentIndex', 0);\r",
+									"}\r",
+									"\r",
+									"let currentIndex = parseInt(pm.variables.get('currentIndex'), 10);\r",
+									"\r",
+									"if (currentRequestData.data && currentRequestData.data.length > currentIndex) {\r",
+									"    let currentData = currentRequestData.data[currentIndex];\r",
+									"\r",
+									"    // Set variables for form-data in Create Patient request\r",
+									"    if (pm.info.requestName === 'CreatePatientValid/Invalid') {\r",
+									"        \r",
+									"        // Construct patientInfo object if needed (adjust as required)\r",
+									"        let patientInfo = {\r",
+									"            FirstName: currentData.FirstName,\r",
+									"            LastName: currentData.LastName,\r",
+									"            ContactNumber: currentData.ContactNumber,\r",
+									"            Email: currentData.Email,\r",
+									"            Allergy: currentData.Allergy,\r",
+									"            FoodPreference: currentData.FoodPreference,\r",
+									"            CuisineCategory: currentData.CuisineCategory,\r",
+									"            DateOfBirth: currentData.DateOfBirth\r",
+									"        };\r",
+									"\r",
+									"        // Store patientInfo in environment or collection variable (optional)\r",
+									"        pm.environment.set('patientInfo', JSON.stringify(patientInfo));\r",
+									"        pm.environment.set('EXPECTEDSTATUS', currentData.Status);\r",
+									"    }\r",
+									"\r",
+									"    // Increment index for next iteration\r",
+									"    pm.variables.set('currentIndex', currentIndex + 1);\r",
+									"     // Check if more data is available and set the next request to iterate\r",
+									"    if (currentIndex + 1 < currentRequestData.data.length) {\r",
+									"        pm.execution.setNextRequest(pm.info.requestName);\r",
+									"    }\r",
+									"} else {\r",
+									"    console.log(\"No more data available for this request.\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const expectedStatusCode =pm.environment.get(EXPECTEDSTATUS);\r",
+									"const actualStatusCode=pm.response.code;\r",
+									"pm.test('STATUS CODE IS CORRECT', () =>{pm.expect(actualStatusCode).to.equal(expectedStatusCode)})\r",
+									"\r",
+									"pm.test(\"Handle different status codes\", () => {\r",
+									"    // Check if pm.response or pm.response.code is undefined or null\r",
+									"    if (pm.response && pm.response.code !== undefined && pm.response.code !== null) {\r",
+									"        // Handle the valid status codes\r",
+									"        if (pm.response.code === 201) {\r",
+									"            pm.test(\"Status code is 201\", () => {\r",
+									"                pm.response.to.have.status(201);\r",
+									"\r",
+									"                var jsonData = JSON.parse(pm.response.text());\r",
+									"\r",
+									"var fileid = Object.keys(jsonData.FileMorbidity)[0];\r",
+									"pm.environment.set(\"Fileid_env\", fileid);\r",
+									"\r",
+									"try {\r",
+									"    var jsonData = JSON.parse(pm.response.text());\r",
+									"\r",
+									"    // Ensure the JSON data has an 'id' field\r",
+									"    if (jsonData.patientId) {\r",
+									"        pm.environment.set(\"PatientIDValidTesting_env\", jsonData.patientId);\r",
+									"    }\r",
+									"    }catch (e) {\r",
+									"    console.error(\"Failed to parse response JSON:\", e);\r",
+									"}\r",
+									"            });\r",
+									"        } else if (pm.response.code === 400) {\r",
+									"            pm.test(\"Status code is 400\", () => {\r",
+									"                pm.response.to.have.status(400);\r",
+									"            });\r",
+									"        } else {\r",
+									"            pm.test('Unexpected status ${pm.response.code}', () => {\r",
+									"                pm.expect.fail('Expected status code to be 200 or 400 but got ${pm.response.code}');\r",
+									"            });\r",
+									"        }\r",
+									"    } else {\r",
+									"        // Handle the case where the response or response code is invalid\r",
+									"        pm.test(\"Response is undefined or null\", () => {\r",
+									"            pm.expect.fail(\"Response or response code is undefined or null\");\r",
+									"        });\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patientInfo",
+									"value": "{{patientInfo}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ef4f977-6933-46b0-ad7b-b3e49d102351"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/patient",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"patient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePatientValid/Invalid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Handle different status codes\", () => {\r",
+									"    // Check if pm.response or pm.response.code is undefined or null\r",
+									"    if (pm.response && pm.response.code !== undefined && pm.response.code !== null) {\r",
+									"        // Handle the valid status codes\r",
+									"        if (pm.response.code === 200) {\r",
+									"            pm.test(\"Status code is 200\", () => {\r",
+									"                pm.response.to.have.status(200);\r",
+									"\r",
+									"                var jsonData = JSON.parse(pm.response.text());\r",
+									"\r",
+									"var fileid = Object.keys(jsonData.FileMorbidity)[0];\r",
+									"\r",
+									"\r",
+									"pm.environment.set(\"Fileid_env\", fileid);\r",
+									"\r",
+									"\r",
+									"            });\r",
+									"        } else if (pm.response.code === 400) {\r",
+									"            pm.test(\"Status code is 400\", () => {\r",
+									"                pm.response.to.have.status(400);\r",
+									"            });\r",
+									"        } else {\r",
+									"            pm.test('Unexpected status ${pm.response.code}', () => {\r",
+									"                pm.expect.fail('Expected status code to be 200 or 400 but got ${pm.response.code}');\r",
+									"            });\r",
+									"        }\r",
+									"    } else {\r",
+									"        // Handle the case where the response or response code is invalid\r",
+									"        pm.test(\"Response is undefined or null\", () => {\r",
+									"            pm.expect.fail(\"Response or response code is undefined or null\");\r",
+									"        });\r",
+									"    }\r",
+									"});\r",
+									"/*\r",
+									"var jsonData = JSON.parse(pm.response.text());\r",
+									"\r",
+									"var fileid = Object.keys(jsonData.FileMorbidity)[0];\r",
+									"\r",
+									"\r",
+									"pm.environment.set(\"Fileid_env\", fileid);\r",
+									"\r",
+									"//console.log(pm.response.text());\r",
+									"\r",
+									"\r",
+									"//console.log(\"Extracted morbidity key:\", fileid);\r",
+									"//console.log(\"JSONDATA:\", jsonData.text());*/"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Check if request data is already set\r",
+									"\r",
+									"//pm.environment.unset(\"patientInfo\");\r",
+									"if (!pm.variables.get('requestData')) {\r",
+									"    pm.variables.set('requestData', pm.iterationData.toObject());\r",
+									"}\r",
+									"\r",
+									"const requestData = pm.variables.get('requestData');\r",
+									"\r",
+									"if (!requestData || typeof requestData !== 'object' || !requestData.requests) {\r",
+									"    console.log(\"No external file found or invalid data\");\r",
+									"    return;\r",
+									"}\r",
+									"\r",
+									"let currentRequestData = requestData.requests.find(r => r.name === pm.info.requestName);\r",
+									"\r",
+									"if (!currentRequestData) {\r",
+									"    console.log(`Request ${pm.info.requestName} has no data defined.`);\r",
+									"    return;\r",
+									"}\r",
+									"\r",
+									"// Initialize index if not set\r",
+									"if (!pm.variables.get('updatecurrentIndex')) {\r",
+									"    pm.variables.set('updatecurrentIndex', 0);\r",
+									"}\r",
+									"\r",
+									"let updatecurrentIndex = parseInt(pm.variables.get('updatecurrentIndex'), 10);\r",
+									"\r",
+									"if (currentRequestData.data && currentRequestData.data.length > updatecurrentIndex) {\r",
+									"    let currentData = currentRequestData.data[updatecurrentIndex];\r",
+									"  console.log(\"current data    \", currentData)\r",
+									"    // Set variables for form-data in Create Patient request\r",
+									"    if (pm.info.requestName === 'UpdatePatientValid/Invalid') {\r",
+									"        \r",
+									"        // Construct patientInfo object if needed (adjust as required)\r",
+									"        let patientInfoup= {\r",
+									"            FirstName: currentData.FirstName,\r",
+									"            LastName: currentData.LastName,\r",
+									"            ContactNumber: currentData.ContactNumber,\r",
+									"            Email: currentData.Email,\r",
+									"            Allergy: currentData.Allergy,\r",
+									"            FoodPreference: currentData.FoodPreference,\r",
+									"            CuisineCategory: currentData.CuisineCategory,\r",
+									"            DateOfBirth: currentData.DateOfBirth\r",
+									"        };\r",
+									"\r",
+									"        // Store patientInfo in environment or collection variable (optional)\r",
+									"        pm.environment.set('patientInfoup', JSON.stringify(patientInfoup));\r",
+									"    }\r",
+									"\r",
+									"  \r",
+									"\r",
+									"    // Increment index for next iteration\r",
+									"    pm.variables.set('updatecurrentIndex', updatecurrentIndex + 1);\r",
+									"     // Check if more data is available and set the next request to iterate\r",
+									"    if (updatecurrentIndex + 1 < currentRequestData.data.length) {\r",
+									"        pm.execution.setNextRequest(pm.info.requestName);\r",
+									"    }\r",
+									"} else {\r",
+									"    console.log(\"No more data available for this request.\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patientInfo",
+									"value": "{{patientInfoup}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ef4f977-6933-46b0-ad7b-b3e49d102351",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/patient/{{PatientIDValidTesting_env}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"patient",
+								"{{PatientIDValidTesting_env}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPatientByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/patient/testReports/{{PatientIDValidTesting_env}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"patient",
+								"testReports",
+								"{{PatientIDValidTesting_env}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delPatient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//pm.environment.unset(\"patientInfo\");\r",
+									"//pm.environment.unset(\"PatientIDValidTesting_env\");\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/patient/{{PatientIDValidTesting_env}}",
+							"protocol": "https",
+							"host": [
+								"dietician-july-api-hackathon-80f2590665cc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"dietician",
+								"patient",
+								"{{PatientIDValidTesting_env}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DelDiet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admintoken_env}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/dietician/{{DietIDForPatient}}",
+							"protocol": "https",
+							"host": [
+								"dietician-july-api-hackathon-80f2590665cc",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"dietician",
+								"dietician",
+								"{{DietIDForPatient}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePatientwith/withoutVitals",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Check if request data is already set\r",
+									"\r",
+									"//pm.environment.unset(\"patientInfo\");\r",
+									"if (!pm.variables.get('requestData')) {\r",
+									"    pm.variables.set('requestData', pm.iterationData.toObject());\r",
+									"}\r",
+									"\r",
+									"const requestData = pm.variables.get('requestData');\r",
+									"\r",
+									"if (!requestData || typeof requestData !== 'object' || !requestData.requests) {\r",
+									"    console.log(\"No external file found or invalid data\");\r",
+									"    return;\r",
+									"}\r",
+									"\r",
+									"let currentRequestData = requestData.requests.find(r => r.name === pm.info.requestName);\r",
+									"\r",
+									"if (!currentRequestData) {\r",
+									"    console.log(`Request ${pm.info.requestName} has no data defined.`);\r",
+									"    return;\r",
+									"}\r",
+									"\r",
+									"// Initialize index if not set\r",
+									"if (!pm.variables.get('vitalcurrentIndex')) {\r",
+									"    pm.variables.set('vitalcurrentIndex', 0);\r",
+									"}\r",
+									"\r",
+									"let vitalcurrentIndex = parseInt(pm.variables.get('vitalcurrentIndex'), 10);\r",
+									"\r",
+									"if (currentRequestData.data && currentRequestData.data.length > vitalcurrentIndex) {\r",
+									"    let currentData = currentRequestData.data[vitalcurrentIndex];\r",
+									"  console.log(\"current data    \", currentData)\r",
+									"    // Set variables for form-data in Create Patient request\r",
+									"    if (pm.info.requestName === 'UpdatePatientwith/withoutVitals') {\r",
+									"        \r",
+									"        // Construct patientInfo object if needed (adjust as required)\r",
+									"        let patientInfoUpdateVitals= {\r",
+									"            FirstName: currentData.FirstName,\r",
+									"            LastName: currentData.LastName,\r",
+									"            ContactNumber: currentData.ContactNumber,\r",
+									"            Email: currentData.Email,\r",
+									"            Allergy: currentData.Allergy,\r",
+									"            FoodPreference: currentData.FoodPreference,\r",
+									"            CuisineCategory: currentData.CuisineCategory,\r",
+									"            DateOfBirth: currentData.DateOfBirth\r",
+									"        };\r",
+									"\r",
+									"        // Store patientInfo in environment or collection variable (optional)\r",
+									"        pm.environment.set('patientInfoUpdateVitals', JSON.stringify(patientInfoUpdateVitals));\r",
+									"\r",
+									"         // Construct patientInfo object if needed (adjust as required)\r",
+									"        let vitals= {\r",
+									"            Weight: currentData.Weight,\r",
+									"            Height: currentData.Height,\r",
+									"            Temperature: currentData.Temperature,\r",
+									"            SP: currentData.SP,\r",
+									"            DP: currentData.DP,\r",
+									"            \r",
+									"        };\r",
+									"\r",
+									"        // Store patientInfo in environment or collection variable (optional)\r",
+									"        pm.environment.set('vitals', JSON.stringify(vitals));\r",
+									"    }\r",
+									"\r",
+									"  \r",
+									"\r",
+									"    // Increment index for next iteration\r",
+									"    pm.variables.set('vitalcurrentIndex', vitalcurrentIndex + 1);\r",
+									"     // Check if more data is available and set the next request to iterate\r",
+									"    if (vitalcurrentIndex + 1 < currentRequestData.data.length) {\r",
+									"        pm.execution.setNextRequest(pm.info.requestName);\r",
+									"    }\r",
+									"} else {\r",
+									"    console.log(\"No more data available for this request.\");\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "patientInfo",
+									"value": "{{patientInfoUpdateVitals}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "vitals",
+									"value": "{{vitals}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/patient/{{PatientIDValidTesting_env}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"patient",
+								"{{PatientIDValidTesting_env}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{DieticianTokenForPatient}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
