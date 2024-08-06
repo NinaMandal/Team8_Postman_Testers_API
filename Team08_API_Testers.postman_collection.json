@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "5d4c93d1-13d8-47a6-9d44-f21359b56bec",
+		"name": "Team08_API_Testers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34741061"
+	},
+	"item": [
+		{
+			"name": "Update Dietician By ID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Load data from json file to collection variable 'requestData'\r",
+							"if(typeof pm.variables.get('requestData') !== 'object')\r",
+							"{\r",
+							"    pm.variables.set('requestData', pm.iterationData.toObject());\r",
+							"}\r",
+							"// Read input data from collection variable 'requestData'\r",
+							"const requestData = pm.variables.get('requestData');\r",
+							"\r",
+							"// If 'requestData'/input data is empty\r",
+							"if(typeof requestData != 'object' || Object.keys(requestData).length === 0)\r",
+							"{\r",
+							"    console.log('No external data provided/data set is empty');\r",
+							"    return;\r",
+							"}\r",
+							"\r",
+							"// Find current request's data\r",
+							"const currentRequest = requestData.requests.filter(({name}) => name === pm.info.requestName)[0];\r",
+							"\r",
+							"// If no data found for current request\r",
+							"if(!currentRequest){\r",
+							"    console.log('Request ${pm.info.requestName} has no data.');\r",
+							"}\r",
+							"\r",
+							"// If data found for current request\r",
+							"if(currentRequest){\r",
+							"    // Expose variables\r",
+							"    const variables = currentRequest.data.shift();\r",
+							"\r",
+							"    Object.entries(variables).forEach(([key, value]) => {\r",
+							"       // console.log(\"Key : \"+key+\" value : \"+value);\r",
+							"        pm.globals.set(key, value);\r",
+							"    });\r",
+							"    pm.variables.set('requestData', requestData);\r",
+							"\r",
+							"    // Declare next request\r",
+							"    if(currentRequest.data.length > 0){\r",
+							"        pm.execution. setNextRequest(pm.info.requestName);\r",
+							"    }\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"var responseBody = pm.response.json();\r",
+							"\r",
+							"console.log(\"Response Json : \"+JSON.stringify(responseBody))\r",
+							"\r",
+							"var requestBody= JSON.parse(pm.request.body.raw)\r",
+							"\r",
+							"console.log(\"Request Json : \"+JSON.stringify(requestBody))\r",
+							"\r",
+							"if(pm.response.code==200)\r",
+							"{\r",
+							"pm.expect(responseBody.ContactNumber).to.equals(requestBody.ContactNumber);\r",
+							"pm.expect(responseBody.Education).to.equals(requestBody.Education);\r",
+							"pm.expect(responseBody.Email).to.equals(requestBody.Email);\r",
+							"\r",
+							"pm.expect(responseBody.Firstname).to.equals(requestBody.Firstname);\r",
+							"pm.expect(responseBody.Lastname).to.equals(requestBody.Lastname);\r",
+							"pm.expect(responseBody.HospitalCity).to.equals(requestBody.HospitalCity);\r",
+							"pm.expect(responseBody.HospitalName).to.equals(requestBody.HospitalName);\r",
+							"\r",
+							"pm.expect(responseBody.HospitalStreet).to.equals(requestBody.HospitalStreet);\r",
+							"pm.expect(responseBody.HospitalPincode).to.equals(requestBody.HospitalPincode);\r",
+							"pm.expect(responseBody.DateOfBirth).to.equals(requestBody.DateOfBirth);\r",
+							"\r",
+							"}\r",
+							"else{\r",
+							"\r",
+							"pm.test(\"print Status\", function () {\r",
+							"    console.log('print the status->' +responseBody);\r",
+							"\r",
+							"});\r",
+							"}\r",
+							"pm.test(\"Content-Type header is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"    \r",
+							"});\r",
+							"pm.test(\"Content-Type header is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json\");\r",
+							"  \r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Admin_Bearer_Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ContactNumber\": \"{{ContactNumber}}\",\n    \"DateOfBirth\": \"{{DateOfBirth}}\",\n    \"Education\": \"{{Education}}\",\n    \"Email\": \"{{Email}}\",\n    \"Firstname\": \"{{Firstname}}\",\n    \"HospitalCity\": \"{{HospitalCity}}\",\n    \"HospitalName\": \"{{HospitalName}}\",\n    \"HospitalPincode\": \"{{HospitalPincode}}\",\n    \"HospitalStreet\": \"{{HospitalStreet}}\",\n    \"Lastname\": \"{{Lastname}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/dietician/{{DietID}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"dietician",
+						"{{DietID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By Dietician ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validate the response schema\", function () {",
+							"    const responseData = pm.response.json();",
+							"    pm.expect(responseData.id).to.be.a('number');",
+							"    pm.expect(responseData.Firstname).to.be.a('string');",
+							"    pm.expect(responseData.Lastname).to.be.a('string');",
+							"    pm.expect(responseData.ContactNumber).to.be.a('string');",
+							"    pm.expect(responseData.DateOfBirth).to.be.a('string');",
+							"    pm.expect(responseData.Email).to.be.a('string'); ",
+							"});",
+							" const responseData = pm.response.json();",
+							"pm.test(\"Response data id is valid\", function () {",
+							"pm.expect(responseData.id).to.equals(parseInt(pm.globals.get('dieticianId')));",
+							"console.log('validate user user_id-->' +responseData.id);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Admin_Bearer_Token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{adminToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/dietician/{{DietID}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"dietician",
+						"{{DietID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
