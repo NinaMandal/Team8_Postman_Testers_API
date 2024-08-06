@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "00e33fc8-9fcb-407e-91ec-6fdc19b4222f",
+		"name": "Team08_API_Testers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37362810",
+		"_collection_link": "https://interstellar-space-75333.postman.co/workspace/Team8_Postman_Hackathon~72442ad8-b6bd-47d3-8d9b-4c96981108fa/collection/37362810-00e33fc8-9fcb-407e-91ec-6fdc19b4222f?action=share&source=collection_link&creator=37362810"
+	},
+	"item": [
+		{
+			"name": "Dietician",
+			"item": [
+				{
+					"name": "Create Dietician",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"if (typeof pm.variables.get('requestdata') !== 'object') \r",
+									"{\r",
+									"    pm.variables.set('requestdata', pm.iterationData.toObject());\r",
+									"}\r",
+									"const requestdata = pm.variables.get('requestdata');\r",
+									"\r",
+									"if(typeof requestdata !== 'object' || Object.keys(requestdata).length ===0) \r",
+									"{\r",
+									"    console.log(\"No external file found\")\r",
+									"    return;\r",
+									"}\r",
+									"\r",
+									"const currentrequest = requestdata.requests.filter(({name}) => name === pm.info.requestName) [0];\r",
+									"if(!currentrequest){\r",
+									"    console.log(`Request ${pm.info.requestName} has no data defined.`);\r",
+									"}\r",
+									"\r",
+									"if(currentrequest){\r",
+									"    const variables = currentrequest.data.shift();\r",
+									"\r",
+									"Object.entries(variables).forEach(([key, value]) => {\r",
+									"        pm.variables.set(key, value);\r",
+									"    });\r",
+									"\r",
+									"pm.variables.set('requestdata',requestdata);\r",
+									"if(currentrequest.data.length > 0){\r",
+									"    pm.execution.setNextRequest(pm.info.requestName)\r",
+									"}\r",
+									"}\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response JSON\r",
+									"try {\r",
+									"    var jsonData = JSON.parse(pm.response.text());\r",
+									"\r",
+									"    // Ensure the JSON data has an 'id' field\r",
+									"    if (jsonData.id) {\r",
+									"        pm.environment.set(\"DietID\", jsonData.id);\r",
+									"        pm.environment.set(\"DietPWD\", jsonData.loginPassword);\r",
+									"        pm.environment.set(\"DietEmail\", jsonData.Email);\r",
+									"        console.log(\"Environment variables set successfully.\");\r",
+									"    } else {\r",
+									"        console.error(\"Response JSON does not contain 'id' field:\", jsonData);\r",
+									"    }\r",
+									"} catch (e) {\r",
+									"    console.error(\"Failed to parse response JSON:\", e);\r",
+									"}\r",
+									"\r",
+									"// Validate if the id is correctly set in the environment\r",
+									"pm.test(\"Check dieticianId present in the response body\", function () {\r",
+									"    pm.expect(jsonData).to.have.property('id');\r",
+									"});\r",
+									"\r",
+									"// Validate Header\r",
+									"pm.test(\"Test Header\", function(){\r",
+									"    pm.response.to.be.header(\"Content-Type\",\"application/json\");  \r",
+									"})\r",
+									"\r",
+									"// Validate status code\r",
+									"if (pm.response.code == 201)\r",
+									"{ \r",
+									"    pm.test(\"Status code is 201\", function () {\r",
+									"      pm.response.to.have.status(201);\r",
+									"    });\r",
+									"}\r",
+									"else if(pm.response.code == 400){\r",
+									"    pm.test(\"Status code is 400\", function () {\r",
+									"      pm.response.to.have.status(400);\r",
+									"    });\r",
+									"} \r",
+									"\r",
+									"else if(pm.response.code == 401){\r",
+									"    pm.test(\"Status code is 401\", function () {\r",
+									"      pm.response.to.have.status(401);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"else if(pm.response.code == 404){\r",
+									"    pm.test(\"Status code is 404\", function () {\r",
+									"      pm.response.to.have.status(404);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"else if(pm.response.code == 200){\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"      pm.response.to.have.status(200);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"// Validate String of status code\r",
+									"if (pm.response.code == 201)\r",
+									"{\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"    });\r",
+									"}\r",
+									"else if(pm.response.code == 400){\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Bad Request\");\r",
+									"    });\r",
+									"}\r",
+									"else if(pm.response.code == 401){\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Unauthorized\");\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"else if(pm.response.code == 404){\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Not Found\");\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"else if(pm.response.code == 200){\r",
+									"    pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Ok\");\r",
+									"    });\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Bearer_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContactNumber\": \"{{contact_Number}}\",\r\n  \"DateOfBirth\": \"{{date_Of_Birth}}\",\r\n  \"Education\": \"{{education}}\",\r\n  \"Email\": \"{{email}}\",\r\n  \"Firstname\": \"{{first_name}}\",\r\n  \"HospitalCity\": \"{{hospital_City}}\",\r\n  \"HospitalName\": \"{{hospital_Name}}\",\r\n  \"HospitalPincode\": \"{{hospital_Pincode}}\",\r\n  \"HospitalStreet\": \"{{hospital_Street}}\",\r\n  \"Lastname\": \"{{last_name}}\"\r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/dietician",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dietician"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Dietician By ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Admin_Bearer_Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/dietician/{{DietId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"dietician",
+								"{{DietId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patient",
+			"item": []
+		}
+	]
+}
