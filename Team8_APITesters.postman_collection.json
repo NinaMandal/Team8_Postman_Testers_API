@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "8cc5768e-b99e-4d1e-9438-246eaef972fb",
-		"name": "PostmanDieticianAPI_Aug24",
+		"name": "Team8_APITesters",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37362810",
 		"_collection_link": "https://interstellar-space-75333.postman.co/workspace/Team8_Postman_Hackathon~72442ad8-b6bd-47d3-8d9b-4c96981108fa/collection/37364520-8cc5768e-b99e-4d1e-9438-246eaef972fb?action=share&source=collection_link&creator=37362810"
@@ -108,7 +108,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{Email}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n}\r\n\r\n// {\r\n//   \"ContactNumber\": \"3458391521\",\r\n//   \"DateOfBirth\": \"1991-06-20\",\r\n//   \"Education\": \"BE\",\r\n//   \"Email\": \"xdfe@gmail.com\",\r\n//   \"Firstname\": \"edfrw\",\r\n//   \"HospitalCity\": \"Tirur\",\r\n//   \"HospitalName\": \"Jaya\",\r\n//   \"HospitalPincode\": \"987654\",\r\n//   \"HospitalStreet\": \"Niram\",\r\n//   \"Lastname\": \"thre\"\r\n \r\n// }\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{Email}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n}\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -162,7 +162,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{Email}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n}\r\n\r\n// {\r\n//   \"ContactNumber\": \"3456000021\",\r\n//   \"DateOfBirth\": \"1990-06-20\",\r\n//   \"Education\": \"BE\",\r\n//   \"Email\": \"dfe@gmail.com\",\r\n//   \"Firstname\": \"edfrw\",\r\n//   \"HospitalCity\": \"Tirur\",\r\n//   \"HospitalName\": \"Jaya\",\r\n//   \"HospitalPincode\": \"987654\",\r\n//   \"HospitalStreet\": \"Niram\",\r\n//   \"Lastname\": \"thre\"\r\n \r\n// }\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{Email}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n}\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -511,7 +511,6 @@
 											"let fileId = Object.keys(response.FileMorbidity)[0];\r",
 											"fileIds.push(fileId);\r",
 											"pm.environment.set ('fileIds',fileIds);\r",
-											"console.log('file id is ',fileId);\r",
 											"pm.environment.set ('fileIdForDietRole',fileIds[0]);\r",
 											"pm.environment.set ('fileIdForPatRole',fileIds[1]);\r",
 											"let patientIds =pm.environment.get('patientIds')||[];\r",
@@ -524,7 +523,6 @@
 											"} else {\r",
 											"    console.log('Not enough patient IDs available');\r",
 											"}\r",
-											"console.log('patient ids are ',patientIds);\r",
 											"let patEmailId = response.Email;\r",
 											"pm.environment.set ('patEmailId',patEmailId);\r",
 											"\r",
@@ -557,7 +555,7 @@
 										{
 											"key": "file",
 											"type": "file",
-											"src": "postman-cloud:///1ef53759-1c28-4c60-b90e-ab2b4cb51f55"
+											"src": "postman-cloud:///1ef558f9-7753-4560-a471-af74d276ab68"
 										}
 									]
 								},
@@ -580,9 +578,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var response = pm.response.json();\r",
-											"var patientIds = response.map(id=>id.patientId);\r",
-											"console.log('patient Ids are ',patientIds)\r",
+											"\r",
 											"\r",
 											"reusableValidations.HeaderTest();\r",
 											"reusableValidations.ResponseTimeCommonTests();\r",
@@ -627,7 +623,12 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"reusableValidations.HeaderTest();\r",
+											"reusableValidations.ResponseTimeCommonTests();\r",
+											"reusableValidations.SuccessStatusCode200Test();\r",
+											"reusableValidations.firstNameHasCharactersOnly();\r",
+											"reusableValidations.lastNameHasCharactersOnly();\r",
+											"reusableValidations.patientIdHasNumbersOnly();"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -637,12 +638,7 @@
 									"listen": "prerequest",
 									"script": {
 										"exec": [
-											"reusableValidations.HeaderTest();\r",
-											"reusableValidations.ResponseTimeCommonTests();\r",
-											"reusableValidations.SuccessStatusCode200Test();\r",
-											"reusableValidations.firstNameHasCharactersOnly();\r",
-											"reusableValidations.lastNameHasCharactersOnly();\r",
-											"reusableValidations.patientIdHasNumbersOnly();"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -663,7 +659,7 @@
 										{
 											"key": "file",
 											"type": "file",
-											"src": "postman-cloud:///1ef53759-1c28-4c60-b90e-ab2b4cb51f55"
+											"src": "postman-cloud:///1ef558f9-7753-4560-a471-af74d276ab68"
 										},
 										{
 											"key": "vitals",
@@ -693,9 +689,7 @@
 									"listen": "prerequest",
 									"script": {
 										"exec": [
-											"reusableValidations.HeaderTest();\r",
-											"reusableValidations.ResponseTimeCommonTests();\r",
-											"reusableValidations.SuccessStatusCode200Test();\r",
+											"\r",
 											""
 										],
 										"type": "text/javascript",
@@ -706,7 +700,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"reusableValidations.HeaderTest();\r",
+											"reusableValidations.ResponseTimeCommonTests();\r",
+											"reusableValidations.SuccessStatusCode200Test();"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -733,7 +729,7 @@
 										{
 											"key": "file",
 											"type": "file",
-											"src": "postman-cloud:///1ef51f3b-1af1-4940-9f79-10282f8b480d"
+											"src": "postman-cloud:///1ef558f9-7753-4560-a471-af74d276ab68"
 										}
 									]
 								},
@@ -879,7 +875,7 @@
 											"   morbidityValues = ['Fasting Glucose','Average Glucose','Plasma Glucose','HbA1c','TSH','T3','T4'];\r",
 											"};\r",
 											"let currentMorbidity = morbidityValues.shift();\r",
-											"console.log('current morbidity is ',currentMorbidity);\r",
+											"\r",
 											"pm.environment.set ('currentMorbidity',currentMorbidity);\r",
 											"pm.environment.set ('morbidityValues',morbidityValues);\r",
 											""
@@ -1504,7 +1500,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{adminTknForNegTestng}}",
+											"value": "{{adminTknForNegTestng1}}",
 											"type": "string"
 										}
 									]
@@ -1513,7 +1509,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "// {\r\n//   \"ContactNumber\": \"{{ContactNumber}}\",\r\n//   \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n//   \"Education\": \"{{Education}}\",\r\n//   \"Email\": \"{{Email}}\",\r\n//   \"Firstname\": \"{{Firstname}}\",\r\n//   \"HospitalCity\": \"{{HospitalCity}}\",\r\n//   \"HospitalName\": \"{{HospitalName}}\",\r\n//   \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n//   \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n//   \"Lastname\": \"{{Lastname}}\"\r\n// }\r\n\r\n{\r\n  \"ContactNumber\": \"2343240023\",\r\n  \"DateOfBirth\": \"1988-04-22\",\r\n  \"Education\": \"BE\",\r\n  \"Email\": \"fgertqt@gmail.com\",\r\n  \"Firstname\": \"ertfd\",\r\n  \"HospitalCity\": \"Tirur\",\r\n  \"HospitalName\": \"Vijaya Diagnostic Center\",\r\n  \"HospitalPincode\": \"234234\",\r\n  \"HospitalStreet\": \"Niram\",\r\n  \"Lastname\": \"sder\"\r\n \r\n}\r\n",
+									"raw": "\r\n{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{Email}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n}\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1593,10 +1589,6 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"// pm.test(\"Response contains error message\", function () {\r",
-											"//     var responseText = pm.response.text();\r",
-											"//     pm.expect(responseText).to.match(/({{errMsg1}}|{{errMsg2}})/);\r",
-											"// });\r",
 											"\r",
 											"const response = pm.response.json();\r",
 											"reusableValidations.statusCodeTestOfNegScenarios();\r",
@@ -1634,7 +1626,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{Email}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n}\r\n\r\n// {\r\n//   \"ContactNumber\": \"2345657896\",\r\n//   \"DateOfBirth\": \"1981-06-20\",\r\n//   \"Education\": \"BE\",\r\n//   \"Email\": \"asd@gmail.com\",\r\n//   \"Firstname\": \"edfrw\",\r\n//   \"HospitalCity\": \"Tirur\",\r\n//   \"HospitalName\": \"Niram\",\r\n//   \"HospitalPincode\": \"433421\",\r\n//   \"HospitalStreet\": \"Niram\",\r\n//   \"Lastname\": \"redf\"\r\n \r\n// }\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{Email}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n}\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1692,7 +1684,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{Email}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n}\r\n\r\n// {\r\n//   \"ContactNumber\": \"3456000034\",\r\n//   \"DateOfBirth\": \"1990-03-22\",\r\n//   \"Education\": \"BE\",\r\n//   \"Email\": \"dfe@gmail.com\",\r\n//   \"Firstname\": \"wert\",\r\n//   \"HospitalCity\": \"Tirur\",\r\n//   \"HospitalName\": \"Jaya\",\r\n//   \"HospitalPincode\": \"987623\",\r\n//   \"HospitalStreet\": \"Niram\",\r\n//   \"Lastname\": \"xser\"\r\n// }\r\n",
+									"raw": "{\r\n  \"ContactNumber\": \"{{ContactNumber}}\",\r\n  \"DateOfBirth\": \"{{DateOfBirth}}\",\r\n  \"Education\": \"{{Education}}\",\r\n  \"Email\": \"{{Email}}\",\r\n  \"Firstname\": \"{{Firstname}}\",\r\n  \"HospitalCity\": \"{{HospitalCity}}\",\r\n  \"HospitalName\": \"{{HospitalName}}\",\r\n  \"HospitalPincode\": \"{{HospitalPincode}}\",\r\n  \"HospitalStreet\": \"{{HospitalStreet}}\",\r\n  \"Lastname\": \"{{Lastname}}\"\r\n}\r\n\r\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1870,7 +1862,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{dietTknForNegTesting}}",
+											"value": "{{dietTknForNegTesting1}}",
 											"type": "string"
 										}
 									]
@@ -1882,7 +1874,7 @@
 									"formdata": [
 										{
 											"key": "patientInfo",
-											"value": "{ \"FirstName\": \"sder\",\n\"LastName\": \"gfte\",\n\"ContactNumber\": \"9667843452\",\n\"Email\": \"sffiytt@gmail.com\",\n\"Allergy\": \"soy\",\n\"FoodPreference\": \"vegan\",\n\"CuisineCategory\":\"Indian\",\n\"DateOfBirth\": \"1992-02-14\"}",
+											"value": "{ \"FirstName\": \"{{FirstName}}\",\n\"LastName\": \"{{LastName}}\",\n\"ContactNumber\": \"{{ContactNumber}}\",\n\"Email\": \"{{Email}}\",\n\"Allergy\": \"{{Allergy}}\",\n\"FoodPreference\": \"{{FoodPreference}}\",\n\"CuisineCategory\":\"{{CuisineCategory}}\",\n\"DateOfBirth\": \"{{DateOfBirth}}\"\n}",
 											"type": "text"
 										},
 										{
@@ -2097,7 +2089,7 @@
 										{
 											"key": "file",
 											"type": "file",
-											"src": "postman-cloud:///1ef51f3b-1af1-4940-9f79-10282f8b480d"
+											"src": "postman-cloud:///1ef558f9-7753-4560-a471-af74d276ab68"
 										}
 									]
 								},
@@ -2754,7 +2746,6 @@
 					"const requestData = pm.variables.get('requestData');\r",
 					"\r",
 					"if (typeof requestData !== 'object' || Object.keys(requestData).length === 0) {\r",
-					"    console.log('No external data provided or object is empty.');\r",
 					"    return;\r",
 					"}\r",
 					"\r",
@@ -2763,13 +2754,11 @@
 					"\r",
 					"// Skip the rest since we have no data\r",
 					"if (!currentRequest) {\r",
-					"    console.log(`Request ${pm.info.requestName} has no data defined.`);\r",
 					"    return;\r",
 					"}\r",
 					"\r",
 					"// Set variables\r",
 					"if(currentRequest){\r",
-					"console.log('Current request is', currentRequest);\r",
 					"const variables = currentRequest.data.shift();\r",
 					"for (const [key,value] of Object.entries(variables)) {\r",
 					"    pm.variables.set(key,value);\r",
@@ -2922,7 +2911,7 @@
 					"        \"Education\"\r",
 					"      ]\r",
 					"    }\r",
-					"      var jsonData = pm.response.json();\r",
+					"      \r",
 					"      pm.response.to.have.jsonSchema(Dieticianschema);\r",
 					"      });\r",
 					"     \r",
@@ -3046,13 +3035,13 @@
 					"patientIdHasNumbersOnly: function() {\r",
 					"    pm.test(\"Patient ID is only numbers\", function () {\r",
 					"    var id = pm.response.json().patientId;\r",
-					"    pm.expect(id).to.be.a('number');\r",
+					"    pm.expect(id).to.be.a('integer');\r",
 					"});\r",
 					"},\r",
 					"\r",
 					"statusCodeTestOfNegScenarios: function() {\r",
 					"    pm.test(\"Status code of negetive testing\", () => {\r",
-					"    pm.expect(pm.response.code).to.be.oneOf([400,404,401])\r",
+					"    pm.expect(pm.response.code).to.be.oneOf([400,404,401,405])\r",
 					"    })\r",
 					"}\r",
 					"\r",

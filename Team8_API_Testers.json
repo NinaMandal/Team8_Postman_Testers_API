@@ -5,22 +5,22 @@
 "name" : "Create Dietician",
 "data" : [
 {
-  "ContactNumber": "4466981423",
-  "DateOfBirth": "1998-11-26T18:14:08.570Z",
+  "ContactNumber": "4466333423",
+  "DateOfBirth": "2001-11-26T18:14:08.570Z",
   "Education": "Degree",
-  "Email": "testgit@gmail.com",
+  "Email": "adfeeeu@gmail.com",
   "Firstname": "MrsGayathri",
   "HospitalCity": "Tirur",
-  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalName": "Vijaya Diagnostic Center",
   "HospitalPincode": "890024",
   "HospitalStreet": "Niram",
   "Lastname": "Subhash"
 },
 {
-  "ContactNumber": "3347321100",
-  "DateOfBirth": "2003-10-26T18:14:08.570Z",
+  "ContactNumber": "3344441100",
+  "DateOfBirth": "2019-10-26T18:14:08.570Z",
   "Education": "Degree",
-  "Email": "adfee@gmail.com",
+  "Email": "adertry@gmail.com",
   "Firstname": "MrsGayathri",
   "HospitalCity": "Tirur",
   "HospitalName": "Viaya Diagnostic Center",
@@ -34,10 +34,10 @@
 "name" : "Update Dietician by DieticianId",
 "data" : [
 {
-  "ContactNumber": "4466981423",
-  "DateOfBirth": "2007-09-26T18:14:08.570Z",
-  "Education": "MCA",
-  "Email": "testgit@gmail.com",
+  "ContactNumber": "6490843223",
+  "DateOfBirth": "1997-09-26T18:14:08.570Z",
+  "Education": "Degree",
+  "Email": "adfeeeu@gmail.com",
   "Firstname": "MrsGayathri",
   "HospitalCity": "Tirur",
   "HospitalName": "Viaya Diagnostic Center",
@@ -51,10 +51,10 @@
 "name" : "Create Patient",
 "data" : [
 {
-"patientInfo": "{\"FirstName\": \"PatientTeamEight\", \"LastName\": \"SV\", \"ContactNumber\": \"8876784983\", \"Email\": \"fghjtui@gmail.com\", \"Allergy\": \"soy\", \"FoodPreference\": \"vegan\", \"CuisineCategory\": \"Indian\", \"DateOfBirth\": \"2007-01-21\"}"
+"patientInfo": "{\"FirstName\": \"PatientTeamEight\", \"LastName\": \"SV\", \"ContactNumber\": \"8823456498\", \"Email\": \"fghdfer@gmail.com\", \"Allergy\": \"soy\", \"FoodPreference\": \"vegan\", \"CuisineCategory\": \"Indian\", \"DateOfBirth\": \"2007-01-21\"}"
 },
 {
-"patientInfo": "{\"FirstName\": \"PatientTeamEight\", \"LastName\": \"St\", \"ContactNumber\": \"5556459283\", \"Email\": \"hjtttre@gmail.com\", \"Allergy\": \"soy\", \"FoodPreference\": \"vegan\", \"CuisineCategory\": \"Indian\", \"DateOfBirth\": \"2000-02-11\"}"
+"patientInfo": "{\"FirstName\": \"PatientTeamEight\", \"LastName\": \"St\", \"ContactNumber\": \"5556090283\", \"Email\": \"hjasder@gmail.com\", \"Allergy\": \"soy\", \"FoodPreference\": \"vegan\", \"CuisineCategory\": \"Indian\", \"DateOfBirth\": \"2000-02-11\"}"
 }
 ]
 },
@@ -62,7 +62,7 @@
 "name" : "Update Patient by PatientId",
 "data" : [
 {
-"patientInfo": "{\"FirstName\": \"PatientTeamEight\", \"LastName\": \"SV\", \"ContactNumber\": \"3999778483\", \"Email\": \"kimuyrut@gmail.com\", \"Allergy\": \"soy\", \"FoodPreference\": \"vegan\", \"CuisineCategory\": \"Indian\", \"DateOfBirth\": \"2005-06-11\"}"
+"patientInfo": "{\"FirstName\": \"PatientTeamEight\", \"LastName\": \"SV\", \"ContactNumber\": \"3999799483\", \"Email\": \"hjasder@gmail.com\", \"Allergy\": \"soy\", \"FoodPreference\": \"vegan\", \"CuisineCategory\": \"Indian\", \"DateOfBirth\": \"2005-06-11\"}"
 }
 ]
 },
@@ -91,6 +91,25 @@
  "password": "test",
  "userLoginEmail": "Team8@gmail.com",
  "login": "logn"
+}
+]
+},
+{
+"name" : "Create Dietician For Neg Scenarios",
+"data" : [
+{
+  "ContactNumber": "4536727890",
+  "DateOfBirth": "2000-10-26",
+  "Education": "Degree",
+  "Email": "fgerty@gmail.com",
+  "Firstname": "fgertry",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
 }
 ]
 },
@@ -677,6 +696,23 @@
 {
   "dietId1": "{{dietIdForNegTesting}}",
   "adminTknForNegTestng1": "{{adminTknForNegTestng}}12"
+}
+]
+},
+{
+"name" : "Create Patient For Neg Scenarios",
+"data" : [
+{ 
+  "FirstName": "sdert",
+  "LastName": "gfrewe",
+  "ContactNumber": "1232313452",
+  "Email": "sdwqe@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1988-02-14",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
 }
 ]
 },
