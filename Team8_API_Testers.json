@@ -1,0 +1,1287 @@
+[
+{
+"requests" : [
+{
+"name" : "Create Dietician",
+"data" : [
+{
+  "ContactNumber": "4466981423",
+  "DateOfBirth": "1998-11-26T18:14:08.570Z",
+  "Education": "Degree",
+  "Email": "testgit@gmail.com",
+  "Firstname": "MrsGayathri",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash"
+},
+{
+  "ContactNumber": "3347321100",
+  "DateOfBirth": "2003-10-26T18:14:08.570Z",
+  "Education": "Degree",
+  "Email": "adfee@gmail.com",
+  "Firstname": "MrsGayathri",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "896724",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash"
+}
+]
+},
+{
+"name" : "Update Dietician by DieticianId",
+"data" : [
+{
+  "ContactNumber": "4466981423",
+  "DateOfBirth": "2007-09-26T18:14:08.570Z",
+  "Education": "MCA",
+  "Email": "testgit@gmail.com",
+  "Firstname": "MrsGayathri",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "896724",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash"
+}
+]
+},
+{
+"name" : "Create Patient",
+"data" : [
+{
+"patientInfo": "{\"FirstName\": \"PatientTeamEight\", \"LastName\": \"SV\", \"ContactNumber\": \"8876784983\", \"Email\": \"fghjtui@gmail.com\", \"Allergy\": \"soy\", \"FoodPreference\": \"vegan\", \"CuisineCategory\": \"Indian\", \"DateOfBirth\": \"2007-01-21\"}"
+},
+{
+"patientInfo": "{\"FirstName\": \"PatientTeamEight\", \"LastName\": \"St\", \"ContactNumber\": \"5556459283\", \"Email\": \"hjtttre@gmail.com\", \"Allergy\": \"soy\", \"FoodPreference\": \"vegan\", \"CuisineCategory\": \"Indian\", \"DateOfBirth\": \"2000-02-11\"}"
+}
+]
+},
+{
+"name" : "Update Patient by PatientId",
+"data" : [
+{
+"patientInfo": "{\"FirstName\": \"PatientTeamEight\", \"LastName\": \"SV\", \"ContactNumber\": \"3999778483\", \"Email\": \"kimuyrut@gmail.com\", \"Allergy\": \"soy\", \"FoodPreference\": \"vegan\", \"CuisineCategory\": \"Indian\", \"DateOfBirth\": \"2005-06-11\"}"
+}
+]
+},
+{
+"name" : "Update Patient Report",
+"data" : [
+{
+"patientInfo": "{\"FirstName\": \"PatientTeamEight\", \"LastName\": \"SV\", \"ContactNumber\": \"4530010183\", \"Email\": \"kgvvgq@gmail.com\", \"Allergy\": \"soy\", \"FoodPreference\": \"vegan\", \"CuisineCategory\": \"Indian\", \"DateOfBirth\": \"2001-06-11\"}"
+}
+]
+},
+{
+"name" : "User Login with Invalid values",
+"data" : [
+{
+ "password": "test1",
+ "userLoginEmail": "Team8@gmail.com",
+ "login": "login"
+},
+{
+ "password": "test",
+ "userLoginEmail": "Teeam8@gmail.com",
+ "login": "login"
+},
+{
+ "password": "test",
+ "userLoginEmail": "Team8@gmail.com",
+ "login": "logn"
+}
+]
+},
+{
+"name" : "Create Dietician with Invalid Values",
+"data" : [
+{
+  "ContactNumber": "",
+  "DateOfBirth": "2012-10-26",
+  "Education": "Degree",
+  "Email": "vfrftr@gmail.com",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "1234667345",
+  "DateOfBirth": "",
+  "Education": "Degree",
+  "Email": "vfeftr@gmail.com",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "1244567345",
+  "DateOfBirth": "2011-11-26",
+  "Education": "",
+  "Email": "vfeftr@gmail.com",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "1114567345",
+  "DateOfBirth": "2012-11-26",
+  "Education": "BE",
+  "Email": "",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "4564590241",
+  "DateOfBirth": "2011-09-26",
+  "Education": "Degree",
+  "Email": "sdfe@gmail.com",
+  "Firstname": "",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "4563000241",
+  "DateOfBirth": "2012-09-26",
+  "Education": "MSC",
+  "Email": "sdfe@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8563000241",
+  "DateOfBirth": "2002-09-26",
+  "Education": "ME",
+  "Email": "sdfe@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8063000241",
+  "DateOfBirth": "2002-10-26",
+  "Education": "MBA",
+  "Email": "sdf@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8033000241",
+  "DateOfBirth": "2001-10-26",
+  "Education": "Degree",
+  "Email": "sdfs@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "234567",
+  "HospitalStreet": "",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8093000241",
+  "DateOfBirth": "2001-10-22",
+  "Education": "MBBS",
+  "Email": "sdfs@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "234567",
+  "HospitalStreet": "Niram",
+  "Lastname": "",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8093000241",
+  "DateOfBirth": "2001-10-22",
+  "Education": "Degree",
+  "Email": "sdfs@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "234567",
+  "HospitalStreet": "Niram",
+  "Lastname": "ghrte",
+  "dietician": "dieticin",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8093456241",
+  "DateOfBirth": "2001-11-22",
+  "Education": "Degree",
+  "Email": "sdds@gmail.com",
+  "Firstname": "wedty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "234567",
+  "HospitalStreet": "Niram",
+  "Lastname": "ghrte",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}2"
+},
+{
+  "ContactNumber": "34567",
+  "DateOfBirth": "2012-10-26",
+  "Education": "BE",
+  "Email": "vfrftr@gmail.com",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "1234667345",
+  "DateOfBirth": "23",
+  "Education": "ME",
+  "Email": "vfeftr@gmail.com",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "1244667345",
+  "DateOfBirth": "2010-11-26",
+  "Education": "345",
+  "Email": "vfftr@gmail.com",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "1114567345",
+  "DateOfBirth": "2012-11-26",
+  "Education": "Degree",
+  "Email": "asder@",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "4564590241",
+  "DateOfBirth": "2011-09-26",
+  "Education": "Degree",
+  "Email": "sdfe@gmail.com",
+  "Firstname": "1asd2",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8063000241",
+  "DateOfBirth": "2002-10-26",
+  "Education": "Degree",
+  "Email": "sdf@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "123",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8093023241",
+  "DateOfBirth": "2012-10-22",
+  "Education": "Degree",
+  "Email": "sdfs@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "234567",
+  "HospitalStreet": "Niram",
+  "Lastname": "1wer2",
+  "dietician": "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+}
+]
+},
+{
+"name" : "Update Dietician with Invalid Values",
+"data" : [
+{
+  "ContactNumber": "",
+  "DateOfBirth": "2011-10-26",
+  "Education": "Degree",
+  "Email": "vfrftr@gmail.com",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "1234611345",
+  "DateOfBirth": "",
+  "Education": "Degree",
+  "Email": "vfeftr@gmail.com",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "1200567345",
+  "DateOfBirth": "2011-02-26",
+  "Education": "",
+  "Email": "vfeftr@gmail.com",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "1114997345",
+  "DateOfBirth": "2012-11-26",
+  "Education": "Degree",
+  "Email": "",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "4564880241",
+  "DateOfBirth": "2013-09-26",
+  "Education": "Degree",
+  "Email": "sdfe@gmail.com",
+  "Firstname": "",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "4003000241",
+  "DateOfBirth": "2012-09-26",
+  "Education": "Degree",
+  "Email": "sdfe@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8593000241",
+  "DateOfBirth": "2004-09-26",
+  "Education": "Degree",
+  "Email": "sdfe@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8673000241",
+  "DateOfBirth": "2002-11-26",
+  "Education": "Degree",
+  "Email": "sdf@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8033055241",
+  "DateOfBirth": "2002-10-26",
+  "Education": "Degree",
+  "Email": "sdfs@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "234567",
+  "HospitalStreet": "",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8333000241",
+  "DateOfBirth": "2001-10-28",
+  "Education": "Degree",
+  "Email": "sdfs@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "234567",
+  "HospitalStreet": "Niram",
+  "Lastname": "",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8093000241",
+  "DateOfBirth": "2001-10-22",
+  "Education": "Degree",
+  "Email": "sdfs@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "234567",
+  "HospitalStreet": "Niram",
+  "Lastname": "ghrte",
+  "dietId1": "{{dietIdForNegTesting}}223",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8094456241",
+  "DateOfBirth": "2002-11-22",
+  "Education": "Degree",
+  "Email": "sdds@gmail.com",
+  "Firstname": "wedty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "234567",
+  "HospitalStreet": "Niram",
+  "Lastname": "ghrte",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}2"
+},
+{
+  "ContactNumber": "34567",
+  "DateOfBirth": "2012-10-26",
+  "Education": "Degree",
+  "Email": "vfrftr@gmail.com",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "1234667345",
+  "DateOfBirth": "23",
+  "Education": "Degree",
+  "Email": "vfeftr@gmail.com",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "1244667345",
+  "DateOfBirth": "2010-11-26",
+  "Education": "123",
+  "Email": "vfftr@gmail.com",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "1114567345",
+  "DateOfBirth": "2012-11-26",
+  "Education": "Degree",
+  "Email": "asder@",
+  "Firstname": "xwqww",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "4564590241",
+  "DateOfBirth": "2011-09-26",
+  "Education": "Degree",
+  "Email": "sdfe@gmail.com",
+  "Firstname": "1asd2",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Viaya Diagnostic Center",
+  "HospitalPincode": "890024",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8063000241",
+  "DateOfBirth": "2002-10-26",
+  "Education": "Degree",
+  "Email": "sdf@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "123",
+  "HospitalStreet": "Niram",
+  "Lastname": "Subhash",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8093023241",
+  "DateOfBirth": "2012-10-22",
+  "Education": "Degree",
+  "Email": "sdfs@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "234567",
+  "HospitalStreet": "Niram",
+  "Lastname": "1wer2",
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "ContactNumber": "8003023241",
+  "DateOfBirth": "2012-11-22",
+  "Education": "Degree",
+  "Email": "sdfs@gmail.com",
+  "Firstname": "werty",
+  "HospitalCity": "Tirur",
+  "HospitalName": "Vijaya Diagnostic Center",
+  "HospitalPincode": "234567",
+  "HospitalStreet": "Niram",
+  "Lastname": "sdfrt",
+  "dietId1": "{{dietIdForNegTesting}}2r",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+}
+]
+},
+{
+"name" : "Get All Dieticians with Invalid Values",
+"data" : [
+{
+  "dietician" : "dietician",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}12"
+},
+{
+  "dietician" : "dieticin",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+}
+]
+},
+{
+"name" : "Get DieticianId with Invalid Values",
+"data" : [
+{
+  "dietId1": "{{dietIdForNegTesting}}122",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "dietId1": "{{dietIdForNegTesting}}1ar",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}"
+},
+{
+  "dietId1": "{{dietIdForNegTesting}}",
+  "adminTknForNegTestng1": "{{adminTknForNegTestng}}12"
+}
+]
+},
+{
+  "name" : "Create Patient with Invalid Values",
+  "data" : [
+{ 
+  "FirstName": "",
+  "LastName": "gfre",
+  "ContactNumber": "1233333452",
+  "Email": "sdere@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1990-02-14",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "sdere",
+  "LastName": "",
+  "ContactNumber": "1234503452",
+  "Email": "sdera@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1990-02-14",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "sdwe",
+  "LastName": "gfrew",
+  "ContactNumber": "",
+  "Email": "sdec@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1989-02-14",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "sdeqr",
+  "LastName": "gfrqe",
+  "ContactNumber": "1234511452",
+  "Email": "",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1992-02-14",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "sdera",
+  "LastName": "gfret",
+  "ContactNumber": "1299563452",
+  "Email": "sqqr@gmail.com",
+  "Allergy": "",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1987-02-14",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "sdqqer",
+  "LastName": "gxxfre",
+  "ContactNumber": "1888563452",
+  "Email": "sder@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1990-12-14",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "sder",
+  "LastName": "gfre",
+  "ContactNumber": "1234522452",
+  "Email": "doiur@gmail.com",
+  "Allergy": "egg",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"",
+  "DateOfBirth": "1990-02-24",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "sssd",
+  "LastName": "gggt",
+  "ContactNumber": "1231122452",
+  "Email": "door@gmail.com",
+  "Allergy": "egg",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "sssd",
+  "LastName": "gggt",
+  "ContactNumber": "1211122452",
+  "Email": "door@gmail.com",
+  "Allergy": "egg",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1988-04-23",
+  "patient": "patiet",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "sssd",
+  "LastName": "gggt",
+  "ContactNumber": "1211111452",
+  "Email": "door@gmail.com",
+  "Allergy": "egg",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1988-06-23",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}11"
+},
+{ 
+  "FirstName": "11sssd",
+  "LastName": "gggt",
+  "ContactNumber": "1211100452",
+  "Email": "door@gmail.com",
+  "Allergy": "egg",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1988-04-23",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "sssd",
+  "LastName": "1gggt2",
+  "ContactNumber": "1210022452",
+  "Email": "door@gmail.com",
+  "Allergy": "egg",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1988-04-23",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "ssewd",
+  "LastName": "gger",
+  "ContactNumber": "12111",
+  "Email": "door@gmail.com",
+  "Allergy": "egg",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1988-04-23",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "ssqw",
+  "LastName": "gggt",
+  "ContactNumber": "1211122052",
+  "Email": "door",
+  "Allergy": "egg",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1988-04-23",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "qqqw",
+  "LastName": "eegt",
+  "ContactNumber": "1211123352",
+  "Email": "doorc@gmail.com",
+  "Allergy": "coco",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1988-04-23",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "qqqw",
+  "LastName": "eegt",
+  "ContactNumber": "1210023352",
+  "Email": "doorc@gmail.com",
+  "Allergy": "egg",
+  "FoodPreference": "nonvegetarian",
+  "CuisineCategory":"Indian",
+  "DateOfBirth": "1988-09-23",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "qqsqw",
+  "LastName": "eexgt",
+  "ContactNumber": "1211123152",
+  "Email": "doqw@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Assam",
+  "DateOfBirth": "1988-04-23",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "werqw",
+  "LastName": "vvvgt",
+  "ContactNumber": "1211345152",
+  "Email": "dorqw@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "22-05-1997",
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+}
+]
+},
+{
+"name" : "Update Patient with Invalid Values",
+"data" : [
+{ 
+  "FirstName": "",
+  "LastName": "dferyu",
+  "ContactNumber": "1210115152",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-07-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "",
+  "ContactNumber": "1215115152",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-03-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dderi",
+  "LastName": "dfwryu",
+  "ContactNumber": "",
+  "Email": "dows@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-07-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "dferyu",
+  "ContactNumber": "1255115152",
+  "Email": "",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-08-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dftri",
+  "LastName": "dfergu",
+  "ContactNumber": "1001115152",
+  "Email": "dowd@gmail.com",
+  "Allergy": "",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-08-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "dferyu",
+  "ContactNumber": "1210115152",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1991-08-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "dferyu",
+  "ContactNumber": "1011115152",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"",
+  "DateOfBirth": "1988-07-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dfweri",
+  "LastName": "dfreryu",
+  "ContactNumber": "1211115552",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "1234",
+  "LastName": "dferyu",
+  "ContactNumber": "1011115152",
+  "Email": "dowr@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1995-07-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "345",
+  "ContactNumber": "1211115152",
+  "Email": "dowr@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-07-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dwferi",
+  "LastName": "dxferyu",
+  "ContactNumber": "12111",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-07-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "vveri",
+  "LastName": "wweryu",
+  "ContactNumber": "1288815152",
+  "Email": "dower",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-07-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "dferyu",
+  "ContactNumber": "1211213152",
+  "Email": "dowr@gmail.com",
+  "Allergy": "chocolate",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-07-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "dferyu",
+  "ContactNumber": "1216745152",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "nonvegetarian",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-07-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "dferyu",
+  "ContactNumber": "1211115152",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"Assam",
+  "DateOfBirth": "1992-07-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "dferyu",
+  "ContactNumber": "1211115152",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "21-12-1996",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dfseri",
+  "LastName": "dfryu",
+  "ContactNumber": "1211225152",
+  "Email": "dowy@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-08-21",
+  "patId1": "{{patIdForNegTesting}}123",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "dferyu",
+  "ContactNumber": "1211115152",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-07-21",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}1a"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "dferyu",
+  "ContactNumber": "1211115152",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-07-21",
+  "patId1": "{{patIdForNegTesting}}5t",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+}
+]
+},
+{
+"name" : "Update Pat Report with Invalid Values",
+"data" : [
+{ 
+  "FirstName": "",
+  "LastName": "",
+  "ContactNumber": "",
+  "Email": "",
+  "Allergy": "",
+  "FoodPreference": "",
+  "CuisineCategory":"",
+  "DateOfBirth": "",
+  "patId1": "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "dferyu",
+  "ContactNumber": "1211115152",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-07-21",
+  "patId1": "{{patIdForNegTesting}}53",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "dferyu",
+  "ContactNumber": "1211115152",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-07-21",
+  "patId1": "{{patIdForNegTesting}}5v",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{ 
+  "FirstName": "dferi",
+  "LastName": "dferyu",
+  "ContactNumber": "1211115152",
+  "Email": "dow@gmail.com",
+  "Allergy": "soy",
+  "FoodPreference": "vegan",
+  "CuisineCategory":"karnataka",
+  "DateOfBirth": "1992-07-21",
+  "patId1": "{{patIdForNegTesting}}5t",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}1x"
+}
+]
+},
+{
+"name" : "Get Pat MorbDetails with Invalid Values",
+"data" : [
+{
+ "patId1": "{{patIdForNegTesting}}23",
+ "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{
+ "patId1": "{{patIdForNegTesting}}",
+ "dietTknForNegTesting1": "{{dietTknForNegTesting}}1a"
+},
+{
+ "patId1": "{{patIdForNegTesting}}1z",
+ "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+}
+]
+},
+{
+"name" : "Get Patients with Invalid Values",
+"data" : [
+{
+  "patient": "patiet",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{
+  "patient": "patient",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}1w"
+}
+]
+},
+{
+"name" : "Get Pat File with Invalid Values",
+"data" : [
+{
+  "fileId1" : "{{fileIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}1q"
+},
+{
+  "fileId1" : "{{fileIdForNegTesting}}1q2w",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+}
+]
+},
+{
+"name" : "Delete PatId with Invalid Values",
+"data" : [
+{
+  "patId1" : "{{patIdForNegTesting}}123",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{
+  "patId1" : "{{patIdForNegTesting}}",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}1qa"
+}
+]
+},
+{
+"name" : "Get All Morbidities with Invalid Values",
+"data" : [
+{
+  "morbidity" : "morbidty",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{
+  "morbidity" : "morbidity",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}123"
+}
+]
+},
+{
+"name" : "Get Morbidity with Invalid Values",
+"data" : [
+{
+  "morbName" : "T5",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}"
+},
+{
+  "morbName" : "T4",
+  "dietTknForNegTesting1": "{{dietTknForNegTesting}}123"
+}
+]
+},
+{
+"name" : "LogOut with Invalid Values",
+"data" : [
+{
+  "logOut" : "logoutdietican",
+  "adminTknForNegTestng1" : "{{adminTknForNegTestng}}"
+},
+{
+  "logOut" : "logoutdietician",
+  "adminTknForNegTestng1" : "{{adminTknForNegTestng}}1q"
+}
+]
+}
+]
+}
+]
